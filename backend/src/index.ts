@@ -4,7 +4,7 @@ const wss=new WebSocketServer({port:8080});
 
 let userCount=0;
 const allSockets:WebSocket[]=[];
-
+// others users can send msg and receive message
 wss.on("connection",(socket)=>{
     allSockets.push(socket);
     userCount=userCount+1;
@@ -19,7 +19,6 @@ for(let i=0;i<allSockets.length;i++){
         s.send(message.toString()+" message sent from the server");
     }
 }
-
 })
 
 })
